@@ -15,11 +15,11 @@ export const CodeBlock: FC<Props> = ({
   editable = false,
   onChange = () => {},
 }) => {
-  const [copyText, setCopyText] = useState<string>('Copy');
+  const [copyText, setCopyText] = useState<string>('复制');
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      setCopyText('Copy');
+      setCopyText('复制');
     }, 2000);
 
     return () => clearTimeout(timeout);
@@ -31,7 +31,7 @@ export const CodeBlock: FC<Props> = ({
         className="absolute right-0 top-0 z-10 rounded bg-[#1A1B26] p-1 text-xs text-white hover:bg-[#2D2E3A] active:bg-[#2D2E3A]"
         onClick={() => {
           navigator.clipboard.writeText(code);
-          setCopyText('Copied!');
+          setCopyText('已复制!');
         }}
       >
         {copyText}
